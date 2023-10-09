@@ -183,10 +183,70 @@ ________________________________________________________________________________
 
 <br>
 <h2>  - Write a program in JavaScript or TypeScript that creates a window containing a single line, point, circle, rectangle.</h2>
-  <p>To execute the exercise JavaScript language has been choosen.  Below is reported the 'index.html' contents.
+  <p>To execute the exercise JavaScript language has been choosen.  Below is reported the 'index.html' contents and the resulting windows.
   </p>
   <pre>
   <code>
+  &lt!DOCTYPE html&gt <br>
+  &lthtml&gt<br>
+  &lthead&gt<br>
+            &lttitle&gtShapes&lt/title&gt<br>
+  &lt/head&gt <br>
+  &ltbody&gt <br>
+            &ltcanvas id="myCanvas" width="400" height="400"&gt&lt/canvas&gt <br>
+            &ltscript&gt <br>
+                      // Get the canvas element <br>
+                      const canvas = document.getElementById("myCanvas"); <br>
+                      const ctx = canvas.getContext("2d"); <br> <br>
+
+                      // Define the coordinates and dimensions for the shapes <br>
+                      const lineStartX = 50; <br>
+                      const lineStartY = 50; <br>
+                      const lineEndX = 200; <br>
+                      const lineEndY = 50; <br> <br>
+
+                      const pointX = 100; <br>
+                      const pointY = 100; <br> <br>
+
+                      const circleX = 250; <br>
+                      const circleY = 150; <br>
+                      const circleRadius = 40; <br> <br>
+
+                      const rectX = 50; <br>
+                      const rectY = 200; <br>
+                      const rectWidth = 150; <br>
+                      const rectHeight = 100; <br> <br>
+
+                      // Draw the shapes on the canvas <br>
+                      // Draw a line <br>
+                      ctx.beginPath(); <br>
+                      ctx.moveTo(lineStartX, lineStartY); <br>
+                      ctx.lineTo(lineEndX, lineEndY); <br>
+                      ctx.stroke(); <br> <br>
+
+                      // Draw a point <br>
+                      ctx.beginPath(); <br>
+                      ctx.arc(pointX, pointY, 2, 0, Math.PI * 2); <br>
+                      ctx.fill(); <br> <br>
+
+                      // Draw a circle <br>
+                      ctx.beginPath(); <br>
+                      ctx.arc(circleX, circleY, circleRadius, 0, Math.PI * 2); <br>
+                      ctx.stroke(); <br> <br>
+
+                      // Draw a rectangle <br>
+                      ctx.beginPath(); <br>
+                      ctx.rect(rectX, rectY, rectWidth, rectHeight); <br>
+                      ctx.stroke(); <br>
+            &lt/script&gt <br>
+  &lt/body&gt <br>
+  &lt/html&gt <br>
+</code>
+</pre>
+
+  <pre>
+  <code class="language-html line-numbers" data-prismjs-copy="Copy the HTML snippet!">
+
     <!DOCTYPE html>
     <html>
     <head>
@@ -244,15 +304,17 @@ ________________________________________________________________________________
 
   </code>
 </pre>
+
 </div>
 
-<!-- Lines below to auto style code snippet -->
+
+<!-- Lines below to auto style code snippet
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-<!-- and it's easy to individually load additional languages -->
+ and it's easy to individually load additional languages
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
 <script>hljs.highlightAll();</script>
-
+-->
 
 <!-- Script below to dynamic button -->
 <script>
