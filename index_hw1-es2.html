@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shapes</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+    <script>
+        // Get the canvas element
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Define the coordinates and dimensions for the shapes
+        const lineStartX = 50;
+        const lineStartY = 50;
+        const lineEndX = 200;
+        const lineEndY = 50;
+
+        const pointX = 100;
+        const pointY = 100;
+
+        const circleX = 250;
+        const circleY = 150;
+        const circleRadius = 40;
+
+        const rectX = 50;
+        const rectY = 200;
+        const rectWidth = 150;
+        const rectHeight = 100;
+
+        // Draw the shapes on the canvas
+        // Draw a line
+        ctx.beginPath();
+        ctx.moveTo(lineStartX, lineStartY);
+        ctx.lineTo(lineEndX, lineEndY);
+        ctx.stroke();
+
+        // Draw a point
+        ctx.beginPath();
+        ctx.arc(pointX, pointY, 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw a circle
+        ctx.beginPath();
+        ctx.arc(circleX, circleY, circleRadius, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // Draw a rectangle
+        ctx.beginPath();
+        ctx.rect(rectX, rectY, rectWidth, rectHeight);
+        ctx.stroke();
+    </script>
+</body>
+</html>
