@@ -176,8 +176,53 @@ ________________________________________________________________________________
 </p>
   <pre>
   <code>
-    // my code here
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
+class DrawingForm : Form
+{
+    public DrawingForm()
+    {
+        // Set the title of the window.
+        this.Text = "Graphics Example";
+
+        // Set the size of the window.
+        this.Size = new Size(400, 400);
+
+        // Subscribe to the Paint event to do custom drawing.
+        this.Paint += new PaintEventHandler(DrawingForm_Paint);
+    }
+
+    private void DrawingForm_Paint(object sender, PaintEventArgs e)
+    {
+        // Create a Graphics object to draw on the form.
+        Graphics g = e.Graphics;
+
+        // Create a pen for drawing lines and rectangles.
+        Pen pen = new Pen(Color.Black);
+
+        // Draw a line from point (50, 50) to (200, 200).
+        g.DrawLine(pen, 50, 50, 200, 200);
+
+        // Draw a point at coordinates (100, 100).
+        g.FillRectangle(Brushes.Red, 100, 100, 2, 2);
+
+        // Draw a circle centered at (250, 250) with a radius of 50.
+        g.DrawEllipse(pen, 200, 200, 100, 100);
+
+        // Draw a rectangle at (50, 250) with a width of 100 and height of 50.
+        g.DrawRectangle(pen, 50, 250, 100, 50);
+
+        // Dispose of the Pen object to release resources.
+        pen.Dispose();
+    }
+
+    public static void Main()
+    {
+        Application.Run(new DrawingForm());
+    }
+}
   </code>
 </pre>
 
@@ -187,60 +232,60 @@ ________________________________________________________________________________
   </p>
   <pre>
   <code class="language-html line-numbers" data-prismjs-copy="Copy the HTML snippet!">
-  &lt!DOCTYPE html&gt <br>
-  &lthtml&gt<br>
-  &lthead&gt<br>
-            &lttitle&gtShapes&lt/title&gt<br>
-  &lt/head&gt <br>
-  &ltbody&gt <br>
-            &ltcanvas id="myCanvas" width="400" height="400"&gt&lt/canvas&gt <br>
-            &ltscript&gt <br>
-                      // Get the canvas element <br>
-                      const canvas = document.getElementById("myCanvas"); <br>
-                      const ctx = canvas.getContext("2d"); <br> <br>
+  &lt!DOCTYPE html&gt
+  &lthtml&gt
+  &lthead&gt
+            &lttitle&gtShapes&lt/title&gt
+  &lt/head&gt
+  &ltbody&gt
+            &ltcanvas id="myCanvas" width="400" height="400"&gt&lt/canvas&gt
+            &ltscript&gt
+                      // Get the canvas element
+                      const canvas = document.getElementById("myCanvas");
+                      const ctx = canvas.getContext("2d"); <br>
 
-                      // Define the coordinates and dimensions for the shapes <br>
-                      const lineStartX = 50; <br>
-                      const lineStartY = 50; <br>
-                      const lineEndX = 200; <br>
-                      const lineEndY = 50; <br> <br>
+                      // Define the coordinates and dimensions for the shapes
+                      const lineStartX = 50;
+                      const lineStartY = 50;
+                      const lineEndX = 200;
+                      const lineEndY = 50; <br>
 
-                      const pointX = 100; <br>
-                      const pointY = 100; <br> <br>
+                      const pointX = 100;
+                      const pointY = 100; <br>
 
-                      const circleX = 250; <br>
-                      const circleY = 150; <br>
-                      const circleRadius = 40; <br> <br>
+                      const circleX = 250;
+                      const circleY = 150;
+                      const circleRadius = 40; <br>
 
-                      const rectX = 50; <br>
-                      const rectY = 200; <br>
-                      const rectWidth = 150; <br>
-                      const rectHeight = 100; <br> <br>
+                      const rectX = 50;
+                      const rectY = 200;
+                      const rectWidth = 150;
+                      const rectHeight = 100; <br>
 
-                      // Draw the shapes on the canvas <br>
-                      // Draw a line <br>
-                      ctx.beginPath(); <br>
-                      ctx.moveTo(lineStartX, lineStartY); <br>
-                      ctx.lineTo(lineEndX, lineEndY); <br>
-                      ctx.stroke(); <br> <br>
-
-                      // Draw a point <br>
-                      ctx.beginPath(); <br>
-                      ctx.arc(pointX, pointY, 2, 0, Math.PI * 2); <br>
-                      ctx.fill(); <br> <br>
-
-                      // Draw a circle <br>
-                      ctx.beginPath(); <br>
-                      ctx.arc(circleX, circleY, circleRadius, 0, Math.PI * 2); <br>
-                      ctx.stroke(); <br> <br>
-
-                      // Draw a rectangle <br>
-                      ctx.beginPath(); <br>
-                      ctx.rect(rectX, rectY, rectWidth, rectHeight); <br>
+                      // Draw the shapes on the canvas
+                      // Draw a line
+                      ctx.beginPath();
+                      ctx.moveTo(lineStartX, lineStartY);
+                      ctx.lineTo(lineEndX, lineEndY);
                       ctx.stroke(); <br>
-            &lt/script&gt <br>
-  &lt/body&gt <br>
-  &lt/html&gt <br>
+
+                      // Draw a point
+                      ctx.beginPath();
+                      ctx.arc(pointX, pointY, 2, 0, Math.PI * 2);
+                      ctx.fill(); <br>
+
+                      // Draw a circle
+                      ctx.beginPath();
+                      ctx.arc(circleX, circleY, circleRadius, 0, Math.PI * 2);
+                      ctx.stroke(); <br>
+
+                      // Draw a rectangle
+                      ctx.beginPath();
+                      ctx.rect(rectX, rectY, rectWidth, rectHeight);
+                      ctx.stroke();
+            &lt/script&gt
+  &lt/body&gt
+  &lt/html&gt 
 </code>
 </pre>
 
