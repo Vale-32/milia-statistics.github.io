@@ -58,6 +58,90 @@
         myArray.pop();  <span>// Remove from the end</span>
         let element = myArray[index];  <span>// Get by index</span>
         myArray[index] = newValue;  <span>// Set by index</span>
+
+        <strong>// Object (Similar to Dictionary):</strong>
+        - <em>Initialization:</em>
+        let myObject = {};
+
+        - <em>Key/Value Operations:</em>
+        myObject[key] = value;  <span>// Add or set a key-value pair</span>
+        let value = myObject[key];  <span>// Get the value by key</span>
+        delete myObject[key];  <span>// Remove a key-value pair</span>
+        let keyExists = key in myObject;  <span>// Check if a key exists</span>
+
+        <strong>// Sorted List (Array Sorted Manually):</strong>
+        - <em>Initialization:</em>
+        let mySortedList = [];
+
+        - <em>Add, Remove, Get (with manual sorting):</em>
+        mySortedList.push(value);  <span>// Add a value</span>
+        mySortedList.sort();  <span>// Manually sort the array</span>
+        mySortedList.splice(index, 1);  <span>// Remove a value</span>
+        let element = mySortedList[index];  <span>// Get by index</span>
+
+        <strong>// Set (Hash Set):</strong>
+        - <em>Initialization:</em>
+        let mySet = new Set();
+
+        - <em>Add, Remove, Check:</em>
+        mySet.add(value);  <span>// Add a value</span>
+        mySet.delete(value);  <span>// Remove a value</span>
+        let valueExists = mySet.has(value);  <span>// Check if a value exists</span>
+
+        <strong>// Sorted Set (Manually Sorted Set):</strong>
+        - <em>Initialization:</em>
+        let mySortedSet = [];
+
+        - <em>Add, Remove, Get (with manual sorting):</em>
+        mySortedSet.push(value);  <span>// Add a value</span>
+        mySortedSet.sort();  <span>// Manually sort the array</span>
+        mySortedSet.splice(index, 1);  <span>// Remove a value</span>
+        let element = mySortedSet[index];  <span>// Get by index</span>
+
+        <strong>// Queue (Using an Array):</strong>
+        - <em>Initialization:</em>
+        let myQueue = [];
+
+        - <em>Enqueue, Dequeue:</em>
+        myQueue.push(value);  <span>// Enqueue</span>
+        let value = myQueue.shift();  <span>// Dequeue</span>
+
+        <strong>// Stack (Using an Array):</strong>
+        - <em>Initialization:</em>
+        let myStack = [];
+
+        - <em>Push, Pop:</em>
+        myStack.push(value);  <span>// Push onto the stack</span>
+        let value = myStack.pop();  <span>// Pop from the stack</span>
+
+        <strong>// Linked List (Singly Linked):</strong>
+        - <em>Define a Node:</em>
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        - <em>Initialization:</em>
+        <span>// Create a linked list</span>
+        let head = new Node(data);
+
+        - <em>Add, Remove, Traverse:</em>
+        <span>// Add a node</span>
+        let newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+
+        <span>// Remove a node (by value or index)</span>
+        prevNode.next = currentNode.next;
+
+        <span>// Traverse the linked list</span>
+        let current = head;
+        while (current) {
+            <span>// Access current node's data</span>
+            current = current.next;
+        }
     </pre>
 </body>
 </html>
