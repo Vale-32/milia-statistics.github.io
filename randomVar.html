@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Variates Distribution</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Random Variates Distribution</h1>
+    <p>
+      N = 10000 <br>
+      k = 25
+    </p>
+    <canvas id="histogram"></canvas>
+
+    <script>
+        // Set the values of N and k
+        const N = 10000;  // Number of random variates
+        const k = 25; // 10;    // Number of class intervals
+
+        // Generate N random variates in [0, 1)
+        const randomVariates = Array.from({ length: N }, () => Math.random());
+
+        // Calculate the histogram
+        const binEdges = Array.from({ length: k + 1 }, (_, i) => (i / k));
+        const histogram = Array.from({ length: k }, (_, i) => {
+            const lowerBound = binEdges[i];
+            const upperBound = binEdges[i + 1];
+            return randomVariates.filter(value => value >= lowerBound && value < upperBound).length / N;
+        });
+
+        // Display the histogram using Chart.js
+        const ctx = document.getElementById('histogram').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: binEdges.slice(0, k),
+                datasets: [{
+                    label: 'Frequency',
+                    data: histogram,
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)'
+                }]
+            },
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
