@@ -1,0 +1,6 @@
+/Users/valentino_milia/RiderProjects/Homework6/Homework6/bin/Debug/Homework6.exe
+/Users/valentino_milia/RiderProjects/Homework6/Homework6/bin/Debug/Homework6.pdb
+/Users/valentino_milia/RiderProjects/Homework6/Homework6/obj/Debug/Homework6.csprojAssemblyReference.cache
+/Users/valentino_milia/RiderProjects/Homework6/Homework6/obj/Debug/Homework6.csproj.CoreCompileInputs.cache
+/Users/valentino_milia/RiderProjects/Homework6/Homework6/obj/Debug/Homework6.exe
+/Users/valentino_milia/RiderProjects/Homework6/Homework6/obj/Debug/Homework6.pdb
