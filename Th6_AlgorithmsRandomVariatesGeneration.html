@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms for Random Variates Generation</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Algorithms for Random Variates Generation</h1>
+        <p>Generating random variates from different probability distributions is a fundamental task in many areas of
+            computer science, statistics, and simulation. There are various algorithms for generating random variates,
+            and the choice of algorithm depends on the specific distribution. Here, I'll provide a brief overview of
+            some common methods for generating random variates from different distributions:</p>
+
+    <h2>Uniform Distribution (0,1)</h2>
+        <p><strong>Linear Congruential Generator (LCG):</strong> A simple and widely used method. It generates
+            pseudo-random numbers using the recurrence relation: \(X_{n+1} = (aX_n + c) \: mod \: m \), where \(X\)
+            is the sequence of pseudo-random values, and
+            <ul>
+                <li> \(m\), with \(m>0\) is the "modulus" </li>
+                <li> \(a\), with \(0 < a < m\) is the "multiplier" </li>
+                <li> \(c\), with \(0 \leq c < m\) is the "increment" </li>
+                <li> \(X_0\), with \(0 \leq X_0 < m\) is the "seed" or "start value" </li>
+            </ul>
+            are integer constants that specify the generator. If \(c = 0\), the generator is often called a
+            Multiplicative Congruential Generator (MCG). The generated number \(U\) is uniform in the range \([0,1]\).
+        </p>
+
+    <h2>Normal Distribution (Gaussian)</h2>
+    <p><strong>Box-Muller Transform:</strong>Generates two independent standard normal variates by transforming two
+        independent uniform variates. The transformation is given by:
+        <br> \(Z_0 = \sqrt{-2 ln U_1} cos(2 \pi U_2) \)
+        <br> \(Z_0 = \sqrt{-2 ln U_1} sin(2 \pi U_2) \)
+        <br> with \(U_1\) and \(U_2\) independent uniform variates.
+    </p>
+
+    <h2>Exponential Distribution</h2>
+        <p><strong>Inverse Transform Method:</strong> if \(U\) is a uniform random variate, then
+            \(X = - \frac{1}{\lambda} ln(1-U) \) follows an exponential distribution with rate \(\lambda\).</p>
+
+    <h2>Poisson Distribution</h2>
+    <p><strong>Poisson Process Simulation:</strong> If \(N(t)\) is a Poisson process with rate \(\lambda\), then the
+        time until the next event follows an exponential distribution. Generate a sequence of exponential random variates
+        until their sum exceeds 1, and the number of variates generated is a Poisson-distributed random variable.</p>
+
+    <h2>Binomial Distributio</h2>
+    <p><strong>Inverse Transform Method:</strong> If \(U\) is a uniform random variate, then \(X = InverseCDF(U) \)
+        follows a binomial distribution. The InverseCDF is the inverse of the cumulative distribution function (CDF).</p>
+
+    <h2>Gamma Distribution</h2>
+    <p><strong>Sum of Exponentials:</strong> A gamma distribution with shape parameter \(k\) is the sum of \(k\)
+        independent exponential random variables with rate \(\lambda\).</p>
+
+    <h2>Beta Distribution</h2>
+    <p><strong>Transformation Method</strong> If \(X\) and \(Y\) are independent gamma-distributed random variables with
+        shape parameters \(\alpha\)  and \(\beta\), then \( \frac{X}{X+Y} \) follows a beta distribution.</p>
+
+    <h2>Weibull Distribution</h2>
+    <p><strong>Inverse Transform Method:</strong> If \(U\) is a uniform random variate, then \(X = (-ln U)^{1/\alpha} \)</p>
+
+    <h2>Log-Normal Distribution</h2>
+    <p><strong>Box-Muller Transform on the Logarithm:</strong> Generate a standard normal variate, and then exponentiate
+        it to obtain a log-normal variate.</p>
+
+    <p>These are just a few examples, and there are other specialized algorithms for specific distributions. Modern
+        programming languages and libraries often provide functions for generating random variates from various
+        distributions, making it convenient for practitioners to use these algorithms without implementing them from
+        scratch.</p>
+</body>
+</html>
