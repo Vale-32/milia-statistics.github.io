@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Distributions</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Statistical Distributions: Continuous, Discrete, Properties and simulations</h1>
+        <p><strong>Abstract:</strong> A probability distribution is a mathematical function that provides the
+        probabilities of the occurrence of various possible outcomes in an experiment. Statistical distributions
+        play a crucial role in analyzing and interpreting data across various fields, providing insights into the
+        patterns and characteristics of datasets. Two fundamental types of distributions are continuous and discrete
+        distributions.</p>
+
+    <h2>1. Discrete distributions</h2>
+    <p>Discrete distributions deal with countable outcomes and are often associated with variables that take on
+        distinct, separate values. Common examples of discrete distributions include the binomial distribution and the
+        Poisson distribution. The binomial distribution, for instance, is used to model the number of successes in a
+        fixed number of independent Bernoulli trials. Discrete distributions are characterized by probability mass
+        functions, which assign probabilities to individual points in the dataset.</p>
+
+    <h2>2. Continuous distributions</h2>
+        <p>In contrast, continuous distributions deal with uncountable outcomes and are associated with variables that
+            can take on any value within a given range. The normal distribution and the exponential distribution are
+            examples of continuous distributions. The normal distribution, often referred to as the bell curve, is
+            prevalent in various natural phenomena and is characterized by a probability density function. Unlike
+            discrete distributions, continuous distributions assign probabilities to intervals rather than specific
+            points.</p>
+
+    <h2>3. Properties</h2>
+        <p><strong>Discrete distribution</strong>
+            <ul>
+                <li><b>Discrete Random Variables</b> The random variable \(X\) takes on distinct, separate values.</li>
+                <li><b>Probability Mass Function (PMF)</b> Describes the probability of each possible outcome.
+                    \(P(X = x)\) gives the probability of the random variable \(X\) taking the value \(x\).
+                <li><b>Probability Space</b> The sum of all probabilities for all possible outcomes equals 1,
+                    \(\sum {P(X = x)} = 1\).
+                <li><b>Cumulative Distribution Function (CDF)</b> \( F(x) = P(X \leq x) \) gives the probability that
+                    the random variable \(X\) is less than or equal to \(x\).
+                <li><b>Expectation</b> Often denoted as \(E(X)\), is a measure that represents the average or mean value
+                    of a random variable. The expectation of a random variable is calculated by taking the sum of the
+                    products of each possible value of the variable and its corresponding probability. For a discrete
+                    random variable \(X\) with probability mass function \(P(X)\), the expectation is given by:
+                    \( E(X) = \sum_{i}{x_i * P(X = x_i)} \)</li>
+                <li><b>Variance</b> Measure of the dispersion or spread of a set of data. Variance provides valuable
+                    information about the degree of variability or spread in a dataset. A higher variance indicates that
+                    the data points are more dispersed from the mean, while a lower variance suggests that the data
+                    points are closer to the mean. Variance is a key component in the calculation of standard deviation,
+                    another important measure of the spread of data. For a sample of data, the sample variance \(s^2\) is
+                    given by: \(s^2 = \frac{1}{n-1} \sum_{i=1}^{n}{(X_i - \hat{X})^2} \), where \(n\) is the number of
+                    data points, \(X_i\) represents each individual data point and \(\hat{X}\) is the sample mean.</li>
+            </ul>
+        <br><strong>Continue distribution</strong>
+            <ul>
+                <li><b>Continuous Random Variables</b> The random variable \(X\) can take any value within a range
+                    \( [a;b] \).</li>
+                <li><b>Probability Density Function (PDF)</b> Describes the likelihood of a random variable taking on a
+                    particular value in a continuous range. \( P(a \leq X \leq b) = \int_a^b{f(x) dx}\), where \(f(x)\)
+                    is the PDF.
+                <li><b>Probability Space</b> The area under the entire PDF curve is equal to 1,
+                \(\int_{-\infty}^{+\infty}{f(x) dx} = 1 \)
+                <li><b>Cumulative Distribution Function (CDF)</b> \(F(x) = P(X \leq x)\) gives the probability that the
+                random variable \(X\) is less than or equal to \(x\).
+                <li><b>Expectation</b> For a continuous random variable \(X\) with probability density function \(f(x)\),
+                the expectation is calculated as an integral over the entire range of possible values:
+                \(E(X) = \int_{-\infty}^{+\infty}{x * f(x) dx}\)</li>
+                <li><b>Variance</b> Population variance \(\sigma^2\) is calculated using a similar formula, but with
+                    \(n\) replaced by \(N\), where \(N\) is the total number of elements in the population, and \(\mu\)
+                    is the population mean: \(\sigma^2 = \frac{1}{N} \sum_{i=1}^{N}{(X_i - \mu)^2} \)</li>
+            </ul>
+        </p>
+        <br>
+
+    <h2>4. Practical Applications</h2>
+    <p><strong>Real-World Example of Discrete Distribution</strong><br>
+        Consider a scenario where you are interested in modeling the number of defective items produced by a
+        manufacturing process in a day. The random variable here is the count of defective items, and it takes on
+        discrete values (0, 1, 2, 3, and so on). The probability mass function of a binomial distribution can be used
+        to model this situation. The binomial distribution provides the probabilities of obtaining a specific number of
+        successes (defective items) in a fixed number of independent trials (production runs). <br>
+        For instance, let's say the probability of producing a defective item on any given trial is \(p=0.05\), and you
+        are interested in the number of defective items in 10 trials. The binomial distribution can be used to calculate
+        the probabilities of 0, 1, 2, ..., 10 defective items in a day.
+
+    <br><br><strong>Real-World Example of Continuous Distribution</strong><br>
+        Imagine you are studying the heights of individuals in a population. The random variable here is height, and it
+        can take on any value within a range. In this case, a normal distribution (also known as a Gaussian distribution)
+        can be a suitable model. The normal distribution is characterized by a bell-shaped curve and is commonly used to
+        describe natural phenomena like human height. <br>
+        Suppose the mean height in a population is 170 cm, and the standard deviation is 10 cm. You can use the
+        probability density function of the normal distribution to calculate the probability of finding individuals
+        with heights within certain ranges. For example, you can find the probability that a randomly selected individual
+        has a height between 160 cm and 180 cm.
+    </p>
+    
+    <h2>5. Challenges and Considerations</h2>
+        <p>While discrete and continuous distributions offer powerful tools for statistical analysis, it is essential
+            to consider the limitations and assumptions associated with each. Discrete distributions may oversimplify
+            real-world scenarios where outcomes are not perfectly distinct, while continuous distributions may assume a
+            level of precision that may not be realistic in certain contexts. Careful consideration of the underlying
+            assumptions is crucial to avoid misinterpretation of results.</p>
+
+    <h2>6. Conclusion</h2>
+        <p>In conclusion, statistical distributions, whether discrete or continuous, form the foundation of statistical
+            analysis. The choice between these distributions depends on the nature of the data and the characteristics
+            of the variables being studied. Discrete distributions are suitable for countable outcomes, while continuous
+            distributions are more appropriate for variables with a range of possible values. A thorough understanding
+            of the characteristics, applications, and limitations of both types of distributions is essential for
+            researchers and practitioners in making informed decisions in data analysis and modeling.</p>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Glivenko–Cantelli Theorem</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>The Glivenko–Cantelli Theorem</h1>
+        <p><strong>Abstract:</strong>The Glivenko–Cantelli theorem plays a crucial role in probability theory and
+            statistics, providing insights into the convergence properties of empirical distribution functions to their
+            underlying true distribution. This paper aims to present a comprehensive overview of the Glivenko–Cantelli
+            theorem, including its statement, proof, and practical implications. Furthermore, we will implement
+            simulations in Python to illustrate the convergence behavior and explore its applications.</p>
+
+    <h2>1. Introduction</h2>
+        <p>The Glivenko–Cantelli theorem is a fundamental result in mathematical statistics that establishes the
+            convergence properties of the empirical distribution function to the true distribution. Introduced
+            independently by Dmitry Glivenko and Emilio Cantelli in the early 1930s, the theorem has since become a
+            cornerstone in probability theory and statistics, with wide-ranging applications in various fields.</p>
+
+    <h2>2. Statement of the Glivenko–Cantelli Theorem</h2>
+        <p>Let \(X_1, X_2, ... X_n\) be independent and identically distributed random variables with a common
+            cumulative distribution function (CDF) \(F(x)\) and let be \(\hat{F}_n(x)\)the empirical distribution function
+            based on these random variables.
+
+            The empirical distribution function \(F_n(x)\) is defined as:
+            $$ \hat{F}_n(x) = \frac{1}{n}\sum_{i=1}^{n}{I(X_i \leq x)} $$
+            where \(I(.)\) is the Indicator function.
+
+            The Glivenko–Cantelli theorem states that
+            $$ sup_{x\in R} |\hat{F}_n(x) - F(x)| \to 0 a.s.$$
+            This convergence is almost sure (a.s.), meaning it occurs with probability which is almost 1, and implies
+            that the empirical distribution function converges uniformly to the true distribution function.
+        </p>
+
+    <h2>3. Proof of the Glivenko–Cantelli Theorem</h2>
+        <p>To prove it, we use the Dvoretzky–Kiefer–Wolfowitz inequality, which provides an upper bound for the
+            maximum deviation between the empirical distribution function and the true distribution function.
+
+            <br><br><strong>Dvoretzky–Kiefer–Wolfowitz Inequality</strong>
+            <br>For any t>0:
+            $$ P(sup_x |\hat{F}_n(x) - F(x)| > t) \leq 2e^{-2nt^2} $$
+
+            <br><br><strong>Proof</strong>
+            <br>Consider the event \(A_n = \{sup_x |\hat{F}_n(x) - F(x)| > t\}\). We can write \(A_n\) as a union of
+            events:
+            $$ A_n = \cup_{i=1}^{n} \{max (|\hat{F}_n(x_i) - F(x_i)| > t)\}$$
+            By the union bound and the independence of \(X_1, X_2, ... X_n\):
+            $$ P(A_n) \leq \sum_{i=1}^{n} P(max (|\hat{F}_n(x_i) - F(x_i)| > t)) $$
+            Using the Dvoretzky–Kiefer–Wolfowitz Inequality for each term:
+            $$ P(A_n) \leq \sum_{i=1}^{n} 2e^{-2nt^2} = 2ne^{-2nt^2} $$
+            Now, let \(t_n=\sqrt{\frac{log(2n)}{2n}} \). Substituting this into the inequality:
+            $$ P(A_n) \leq 2ne^{-2n\frac{log(2n)}{2n}} = 2n (\frac{1}{2n})^2 = \frac{1}{n} $$
+            By the Borel–Cantelli lemma, if the sum of the probabilities is finite, then \( P(lim sup A_n) = 0 \).
+            Therefore, \( P(sup_x |\hat{F}_n(x) - F(x)| > t_n) = 0 \) for all \(n\).
+            Since \(t_n \to 0 \) and \(n \to \inf \), we have:
+            $$ P(sup_x |\hat{F}_n(x) - F(x)| > 0) = 0 $$
+            This implies that \(sup_{x\in R} |\hat{F}_n(x) - F(x)| \to 0 a.s.\), proving the Glivenko–Cantelli Theorem.</p>
+
+    <h2>4. Simulations in Python</h2>
+        <p>To provide a practical illustration of the Glivenko–Cantelli theorem, we will implement simulations in
+            Python. Using a simulated dataset and the empirical distribution function, we will demonstrate the
+            convergence behavior as the sample size increases. The code will utilize libraries such as NumPy and
+            Matplotlib to facilitate the implementation and visualization of the simulations.
+
+        <pre><code class="language-python">
+        import numpy as np
+        import matplotlib.pyplot as plt
+
+        def empirical_distribution(sample):
+            sample_size = len(sample)
+            sorted_sample = np.sort(sample)
+            ecdf = np.arange(1, sample_size + 1) / sample_size
+            return sorted_sample, ecdf
+
+        def plot_simulation(true_distribution, sample_size):
+            sample = true_distribution.rvs(size=sample_size)
+            sorted_sample, ecdf = empirical_distribution(sample)
+
+            plt.step(sorted_sample, ecdf, label='Empirical CDF')
+            plt.plot(sorted_sample, true_distribution.cdf(sorted_sample), label='True CDF', linestyle='--')
+
+            plt.title(f'Glivenko–Cantelli Theorem Simulation (Sample Size: {sample_size})')
+            plt.xlabel('Value')
+            plt.ylabel('Cumulative Probability')
+            plt.legend()
+            plt.show()
+
+        # Example Usage
+        from scipy.stats import norm
+
+        true_distribution = norm()
+        plot_simulation(true_distribution, sample_size=1000)
+        </code></pre>
+
+        This Python code generates a random sample from a standard normal distribution, computes the empirical
+        distribution function, and compares it with the true cumulative distribution function. The visualization
+        demonstrates the convergence of the empirical distribution function to the true distribution as the sample size
+        increases.</p>
+
+    <h2>5. Applications and Implications</h2>
+        <p>Discussing the practical implications of the Glivenko–Cantelli theorem in statistical inference, hypothesis
+            testing, and non-parametric estimation. Highlighting its relevance in assessing the goodness-of-fit of
+            statistical models and its impact on the robustness of statistical procedures.</p>
+
+    <h2>6. Conclusion</h2>
+        <p>Summarizing the key findings of the paper, emphasizing the importance of the Glivenko–Cantelli theorem in
+            understanding the convergence properties of empirical distribution functions. Concluding remarks on its
+            broader significance in statistical theory and practice.</p>
+</body>
+</html>
+
