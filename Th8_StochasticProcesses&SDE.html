@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stochastic processes and SDE's</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stochastic processes and SDE's</h1>
+    <p><strong>Abstract:</strong> Stochastic processes and stochastic differential equations (SDEs) play a crucial role
+        in modeling and analyzing systems with inherent uncertainty and randomness. This paper provides an overview on
+        stochastic processes and on the stochastic differential equations. Subsequently, will be analyzed the link between
+        these to finally deal with SDE solution. </p>
+
+    <h2>1. Introduction</h2>
+        <p>Stochastic processes are mathematical models that describe the evolution of a system over time, taking into
+            account random variations. These processes are essential for understanding and modeling phenomena in diverse
+            fields, such as finance, biology, physics, and engineering. Stochastic differential equations, a natural
+            extension of stochastic processes, provide a powerful tool for describing systems with both deterministic
+            and stochastic components.</p>
+
+    <h2>2. Stochastic Processes</h2>
+        <p>A stochastic process is a mathematical concept that characterizes the evolution of a system over time in the
+            presence of random fluctuations. At its core, a stochastic process is a collection of random variables,
+            each associated with a specific point in time. These random variables represent the uncertain and dynamic
+            nature of the system under consideration.
+            <br><br>
+            Stochastic processes can be categorized based on several key criteria. First, they may operate in either
+            <b>discrete or continuous time</b>, depending on whether the system's evolution is observed at distinct time
+            points or continuously over a time interval. Additionally, stochastic processes can be classified as
+            <b>Markovian or non-Markovian</b>, depending on whether the future state of the system is solely determined
+            by its present state or influenced by its entire past history (system's evolution is memoryless, and the
+            future depends only on the current state, lack of historical dependence). Another classification criterion is
+            <b>stationarity</b>, with processes categorized as stationary or non-stationary based on whether their
+            statistical properties remain constant over time.
+            <br><br>
+            Among the most common stochastic processes we found <b>the Wiener process</b>, characterized by continuous paths
+            and Brownian motion-like behavior; <b>the Poisson process</b>, modeling events occurring randomly in time;
+            and the ubiquitous Brownian motion, a continuous-time stochastic process exhibiting random and continuous
+            trajectories. </p>
+
+    <h2>3. Stochastic Differential Equations (SDEs)</h2>
+        <p> Stochastic Differential Equations (SDEs) offer a powerful framework for modeling dynamic systems subject to
+            random fluctuations. The motivation for employing SDEs lies in their ability to capture the inherent
+            uncertainty observed in real-world phenomena. Unlike deterministic models, SDEs acknowledge the presence of
+            randomness, making them particularly well-suited for describing complex systems influenced by unpredictable
+            factors.
+            <br><br>
+            The relationship between SDEs and stochastic processes is foundational to understanding their utility.
+            An SDE is essentially an equation that involves both deterministic and stochastic components, and it describes
+            how a system evolves over time in the presence of random forces. By linking SDEs with stochastic processes,
+            one can leverage the broader understanding of how randomness operates within a system and gain insights into
+            the statistical properties of the modeled processes.</p>
+
+    <h2>4. Deriving SDEs from Stochastic Processes</h2>
+        <p>Consider a continuous-time stochastic process, and let \(X_t\) represent the state of the system at time \(t\).
+            The infinitesimal change in \(X_t\) can be expressed as the sum of a deterministic part and a stochastic part.
+            The latter is typically modeled using a Wiener process, also known as Brownian motion. Mathematically,
+            this leads to the basic form of an SDE:
+            $$ dX_t = a(X_t, t)dt + b(X_t,t)dW_t  $$
+            where:
+            <ul>
+                <li>\(a(X_t, t)\) is called <b>Drift term</b> and represents the deterministic part of the change in the process.</li>
+                <li>\(b(X_t,t)\) is called <b>Diffusion term</b> and represents the random part of the change, scaled by the Wiener process.</li>
+                <li>\(dW_t\) is the differential of a Wiener process (Brownian motion), representing the
+                random component.</li>
+            </ul>
+        </p>
+
+    <h2>5. SDE Solution</h2>
+        <p>Itô's lemma stands as a cornerstone in the analysis of SDEs. Named after the Japanese mathematician Kiyosi Itô,
+            this lemma provides a crucial tool for expressing the differential of a function of a stochastic process.
+            It plays a pivotal role in the calculus of stochastic processes, enabling the derivation of differential
+            equations involving stochastic terms. Itô's lemma is indispensable for transforming equations involving
+            stochastic processes into a more analytically tractable form, facilitating the solution and analysis of
+            complex systems.
+            $$ dX_t = a(X_t, t)dt + b(X_t,t)dW_t \Longrightarrow df = \left(\frac{\partial f}{\partial t} + \mu \frac{\partial f}{\partial X_t} + \frac{1}{2} \sigma^2 \frac{\partial^2 f}{\partial X_t^2}\right)dt + \sigma \frac{\partial f}{\partial X_t} dW_t $$
+            for any differentiable function \(f(X_t, t)\).
+        </p>
+</body>
+</html>
