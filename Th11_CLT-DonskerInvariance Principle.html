@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The functional CLT: Donsker's Invariance Principle</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>The functional CLT, Donsker's invariance principle: Proof and Simulations</h1>
+    <p><strong>Abstract:</strong> Donsker’s Invariance Principle is a powerful concept in probability theory that extends the
+        classical Central Limit Theorem (CLT) to the functional setting, specifically addressing empirical processes.
+        This paper aims to provide a thorough exploration of Donsker’s Invariance Principle, offering a detailed proof
+        and accompanying code simulations to enhance understanding and demonstrate practical applications. </p>
+
+    <h2>1. Introduction</h2>
+        <p>The classical CLT is a fundamental result characterizing the asymptotic behavior of the sum or average of
+            independent and identically distributed random variables. Donsker’s Invariance Principle builds upon this,
+            extending the CLT to empirical processes observed in function spaces. This paper delves into the theoretical
+            foundations and implications of Donsker’s Invariance Principle.
+        </p>
+
+    <h2>2. Donsker’s Invariance Principle</h2>
+        <p>To understand Donsker's Invariance Principle, it's essential to grasp the concept of empirical processes.
+            An empirical process is a sequence of random variables that represents the cumulative distribution function
+            (CDF) of a sample. These processes play a crucial role in statistical theory, enabling the study of
+            convergence properties and asymptotic behavior.
+            <br><br>
+            Donsker's Invariance Principle is often formulated in the context of the Skorokhod space, a mathematical
+            framework for dealing with stochastic processes that have cadlag (right-continuous with left limits) sample
+            paths. This space is chosen due to its ability to accommodate a wide range of processes encountered in
+            probability theory and statistics.
+        </p>
+
+    <h2>3. Donsker’s Invariance Principle: Statement and Proof</h2>
+        <p>Donsker's Invariance Principle can be stated as follows:
+            <br><br>
+            Let \(X_1,X_2,...\) e a sequence of independent and identically distributed (i.i.d.) andom variables with
+            cumulative distribution function \(F\), and let \(F_n\) be the empirical distribution function based on the
+            first \(n\) observations. Then, the process \(\sqrt{n}(F_n -F) \) converges in distribution to a standard
+            Brownian bridge as \(n\) approaches infinity.
+            <br><br>
+            In simpler terms, Donsker's Invariance Principle asserts that the standardized empirical process converges
+            to a standard Brownian bridge as the sample size grows indefinitely.
+            <br><br>
+            The proof of Donsker’s invariance principle involves demonstrating tightness and weak convergence. Here’s a
+            high-level outline of the proof:
+            <ol>
+                <li><strong>Tightness</strong>The proof often starts by establishing tightness, ensuring that the family
+                    of processes under consideration doesn't exhibit excessive variability.</li>
+                <li><strong>Skorokhod Representation Theorem</strong>The Skorokhod Representation Theorem is a crucial
+                    tool in the proof. It allows for the construction of processes with prescribed marginal distributions
+                    and specified sample paths.</li>
+                <li><strong>Characteristic Functions</strong>The use of characteristic functions facilitates the
+                    demonstration of convergence in distribution. Donsker's Invariance Principle involves establishing
+                    the convergence of characteristic functions, linking it to the convergence of the processes themselves.</li>
+            </ol>
+        </p>
+
+    <h2>4. Simulations</h2>
+        <p>To complement the theoretical exposition, this paper provides detailed code simulations using Python
+            programming language. The simulation methodology involves generating empirical processes, applying Donsker’s
+            Invariance Principle, and comparing the simulated results with the expected Gaussian distribution.
+            <br><br>
+            Pyhton code available <a href="https://github.com/Vale-32/milia-statistics.github.io/blob/main/Th11_Simulation.py">here!</a>
+            <img src="Th11_Simulation.png" alt="Wprocess_GBM" width="1200" height="600">
+
+        </p>
+
+    <h2>5. Conclusion</h2>
+        <p>Donsker's Invariance Principle is a powerful tool that extends the classical CLT to the functional setting.
+            Its implications are far-reaching, impacting fields where empirical processes play a
+            vital role. The principle provides a bridge between probability theory and statistics, enabling a deeper
+            understanding of the behavior of stochastic processes in function spaces.
+        </p>
+
+
+
+</body>
+</html>
