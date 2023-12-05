@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Algorithms and Data Streams</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Algorithms and Data Streams: Ideas and Code</h1>
+    <p><strong>Abstract:</strong> Online algorithms and data streams are concepts in computer science and data
+        processing that deal with situations where data arrives continuously, and the algorithm needs to process it
+        on-the-fly without having access to the entire dataset at once. This is in contrast to offline algorithms, which
+        assume that the entire input is available from the beginning.
+    </p>
+
+    <h2>1. Online Algorithms</h2>
+        <p>Online algorithms are designed to make decisions or provide solutions without having complete information
+            about the input data in advance. These algorithms are used in scenarios where the data arrives sequentially,
+            and decisions must be made immediately without knowledge of future data. Online algorithms are often evaluated
+            based on their competitive ratio, which measures how well the algorithm performs compared to an optimal
+            offline algorithm that has complete knowledge of the input.
+            <br><br>
+            Examples of online algorithms include:
+            <ul>
+                <li><strong>Online Paging Algorithm</strong> In the paging problem, where a limited cache needs to store
+                    pages of data, an online paging algorithm makes decisions about which pages to keep in the cache
+                    without knowing future page requests. </li>
+                <li><strong>Online Load Balancing</strong> In the context of distributing tasks across multiple servers,
+                    online load balancing algorithms allocate incoming tasks to servers as they arrive, without knowing
+                    the future workload.</li>
+            </ul>
+        </p>
+
+    <h2>2. Data Streams</h2>
+        <p>Data streams refer to a continuous flow of data that is generated and consumed in real-time. Unlike
+            traditional batch processing, where data is collected and processed in fixed-size chunks, data stream
+            processing deals with data that is generated and processed on the fly, often in a single pass. Examples of
+            data streams include social media feeds, network traffic, and sensor data.
+            <br><br>
+            Challenges and considerations in data stream processing include:
+            <ul>
+                <li><strong>Limited Memory</strong> Data stream algorithms often have limited memory available for
+                    processing. As the data is continuous, it may not be feasible to store the entire stream.</li>
+                <li><strong>Time Sensitivity</strong> Processing must be done quickly, and decisions often need to be
+                    made in near real-time to keep up with the continuous flow of data.</li>
+                <li><strong>Dynamic Nature</strong> Data streams are dynamic, and the characteristics of the data may
+                    change over time. Algorithms must be adaptive to handle these changes.</li>
+            </ul>
+        </p>
+
+    <h2>3. Online Algorithms for Data Streams</h2>
+        <p>Online algorithms are particularly relevant in the context of data streams. Some examples include:
+            <ul>
+                <li><strong>Count-Min Sketch</strong> A probabilistic data structure used for approximate counting of
+                    events in a data stream.</li>
+                <li><strong>Reservoir Sampling</strong> A technique for sampling a fixed-size subset of elements from an
+                    incoming data stream, where the size of the stream is not known in advance.</li>
+                <li><strong>Sliding Window Algorithms</strong> These algorithms maintain a window of the most recent
+                    elements in the data stream and update their computations as new elements arrive, discarding older
+                    elements.</li>
+            </ul>
+        </p>
+
+    <h2>4. Code</h2>
+        <p>Let's consider a simple example of an online algorithm for computing the average of a stream of numbers.
+            This algorithm maintains the running average as new numbers arrive. The <a target="_blank" href="https://github.com/Vale-32/milia-statistics.github.io/blob/main/Th7_Simulation.py">code</a>
+            demonstrates a basic Python implementation.
+            <br><br>
+            <img src="RunningAvgMCNumbers.png" alt="Running Average of Monte carlo Numbers.">
+            <br><br>
+            We simulated a stream of Monte Carlo numbers and computed the running average using an online algorithm. To
+            generate Monte Carlo numbers (floats between 0 and 1) has been used the '<b>random</b>' module, while
+            '<b>OnlineAverage</b>' class to compute the running average. '<b>The monte_carlo_stream</b>'
+            is created using a list comprehension that generates 10 such random numbers.
+        </p>
+
+    <h2>5. Conclusion</h2>
+        <p>Online algorithms for data streams are crucial in applications such as real-time analytics, monitoring,
+            and anomaly detection, where timely processing of incoming data is essential.</p>
+</body>
+</html>
