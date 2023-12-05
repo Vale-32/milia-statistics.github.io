@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viener Process and GBM</title>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background-color: #f4f4f4;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>The Viener Process and the GBM, Derivations and Simulations</h1>
+    <p><strong>Abstract:</strong>This paper explores two fundamental stochastic processes: the Wiener process and the
+        Geometric Brownian Motion (GBM). The Wiener process, also known as Brownian motion, forms the foundation of
+        stochastic calculus and serves as a crucial model for describing random movements. The Geometric Brownian Motion,
+        an extension of the Wiener process, is widely used in financial modeling, especially in the pricing of options
+        and understanding asset price dynamics. In this paper, we provide detailed derivations of both processes and
+        present simulations to illustrate their key characteristics. </p>
+
+    <h2>1. Introduction</h2>
+        <p>The Wiener process, introduced by Norbert Wiener in the early 20th century, is a continuous-time stochastic
+            process that exhibits random and unpredictable movements. It has become a cornerstone of stochastic calculus,
+            providing a mathematical framework to describe the evolution of various phenomena, including financial markets.
+            The Geometric Brownian Motion, an extension of the Wiener process, is particularly relevant in the context
+            of modeling asset prices.
+        </p>
+
+    <h2>2. The Wiener Process</h2>
+        <p>The Wiener process, also known as Brownian motion, is a continuous-time stochastic process that has wide
+            applications in various fields, including physics, finance, and biology. Named after Norbert Wiener, who
+            introduced it in the early 20th century, the Wiener process is characterized by its random and unpredictable
+            movements. It serves as a fundamental building block for stochastic calculus and has become a crucial tool
+            in modeling the dynamics of systems that undergo random fluctuations.
+            <br><br>
+            The Wiener process is defined by the following key properties:
+            <ul>
+                <li>The process starts at zero: \(W(0) = 0\)</li>
+                <li>Independent increments: For any sequence of time points \(0 \leq t_1 < t_2 < \ldots < t_n\), the increments \(W(t_1), W(t_2) - W(t_1), \ldots, W(t_n) - W(t_{n-1})\) are independent</li>
+                <li>Normally distributed increments: The increments \(W(t_{i+1}) - W(t_i)\) are normally distributed with mean zero and variance \(t_{i+1} - t_i\).</li>
+            </ul>
+            Mathematically, the Wiener process is often denoted by \(W(t)\), where \(t\) epresents time.
+        </p>
+
+    <h2>3. Geometric Brownian Motion (GBM)</h2>
+        <p>The Geometric Brownian Motion is an extension of the Wiener process and is widely used in finance to model
+            the continuous-time evolution of asset prices. The GBM is defined by the stochastic differential equation:
+            $$ dS(t) = \mu S(t)dt + \sigma S(t)dW(t) $$
+            where:
+            <ul>
+                <li>\(S(t)\) is the asset price at time \(t),</li>
+                <li>\(\mu\) is the drift parameter representing the expected return per unit time,</li>
+                <li>\(\sigma\) is the volatility parameter representing the standard deviation of the asset return,</li>
+                <li>\(W(t)\) is the Wiener process. </li>
+            </ul>
+        </p>
+
+    <h2>4. Simulation</h2>
+        <p>To illustrate the properties of the Wiener process and the GBM, we conduct simulations using Monte Carlo
+            methods. We generate sample paths of these processes and analyze the resulting trajectories. Simulations
+            provide a practical understanding of how these processes behave over time and help validate the theoretical
+            derivations.
+            <br><br>
+            <strong>Monte Carlo Simulation of the Wiener Process:</strong>
+            <ol>
+                <li>Discretization: Choose a time interval \( [0, T]\) and divide it into \(N\) time steps: \(\Delta t = T/N \).
+                    Set the initial value of the Wiener process:  \(W(0)=0\).</li>
+                <li>Generate Random Increments: For each time step \(i\), generate a random number from a normal distribution
+                    with mean 0 and variance \( \Delta t: \; Z_i \sim \mathcal{N}(0, \Delta t) \).
+                    Update the Wiener process \(W(t_{i+1}) = W(t_i) + Z_i\)</li>
+                <li>Repeat steps 2 for each time step until \(T\) is reached.</li>
+                <li>Plot the generated path of the Wiener process.</li>
+            </ol>
+            <br><br>
+            <strong>Monte Carlo Simulation of the Geometric Brownian Motion (GBM):</strong>
+            <ol>
+                <li>Discretization: Choose a time interval \( [0, T]\) and divide it into \(N\) time steps: \(\Delta t = T/N \).
+                    Set the initial value of the GBM:  \(S(0)=S_0\).</li>
+                <li>Generate Random Increments: For each time step \(i\), generate a random number from a normal distribution
+                    with mean 0 and variance \( \Delta t: \; Z_i \sim \mathcal{N}(0, \Delta t) \).
+                    Update the GBM using the stochastic differential equation: \(S(t_{i+1}) = S(t_i) \exp\left((\mu - \frac{\sigma^2}{2})\Delta t + \sigma Z_i \sqrt{\Delta t}\right) \) </li>
+                <li>Repeat steps 2 for each time step until \(T\) is reached.</li>
+                <li>Plot the generated path of the GBM.</li>
+            </ol>
+            <br><br>
+            Pyhton code available <a href="https://github.com/Vale-32/milia-statistics.github.io/Th10_MCsimulation.py">here!</a>
+            <img src="Wprocess_GBM.png" alt="Wprocess_GBM" width="1200" height="600">
+
+        </p>
+
+    <h2>5. Conclusion</h2>
+        <p>In conclusion, this paper delves into the fundamental concepts of the Wiener process and the Geometric
+            Brownian Motion. We provide detailed derivations of their properties and conduct simulations to enhance the
+            understanding of their behavior. These stochastic processes play a crucial role in financial modeling and
+            pricing, making them essential tools for researchers and practitioners in the field of mathematical finance.
+        </p>
+
+
+
+</body>
+</html>
