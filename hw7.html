@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts</title>
+    <!-- Include the CanvasJS library here -->
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="buttonContainer">
+        <span>Select a process:</span>
+        <div>
+            <button onclick="changeProcess('Poisson')">Poisson</button>
+            <button onclick="changeProcess('Brownian')">Brownian</button>
+            <button onclick="changeProcess('GeometricBrownian')">Geometric Brownian</button>
+            <button onclick="changeProcess('OrnsteinUhlenbeck')">Ornstein–Uhlenbeck</button>
+            <button onclick="changeProcess('Vasicek')">Vasicek</button>
+            <button onclick="changeProcess('HullWhite')">Hull–White</button>
+            <button onclick="changeProcess('CIR')">Cox–Ingersoll–Ross</button>
+            <button onclick="changeProcess('BlackKarasinski')">Black–Karasinski</button>
+            <button onclick="changeProcess('Heston')">Heston</button>
+            <button onclick="changeProcess('ChenModel')">Chen Model</button>
+            <!-- Add buttons for other processes as needed -->
+        </div>
+    </div>
+    <div id="charts-container">
+        <div id="chart1" style="width: 500px; height: 400px; position: absolute; left: 10px; top: 70px;"></div>
+        <div id="chart2" style="width: 500px; height: 400px; position: absolute; left: 520px; top: 70px;"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
