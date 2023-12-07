@@ -45,6 +45,13 @@
       border-radius: 4px;
       overflow: auto;
     }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
   </style>
 </head>
 
@@ -61,43 +68,354 @@
     define this distribution. To enhance understanding, we complement the theoretical aspects with practical
     simulations that illustrate the Gaussian distribution in action.</p>
 
-  <h2>1. Introduction:</h2>
+  <h2>1. Introduction</h2>
     <p>The Gaussian distribution, named after Carl Friedrich Gauss, is a continuous probability distribution that is
     symmetric, bell-shaped, and characterized by its mean and standard deviation. This distribution is often encountered
     in natural phenomena, making it a fundamental concept in probability theory and statistics. Its ubiquity is attributed
     to the central limit theorem, which states that the sum (or average) of a large number of independent, identically
     distributed random variables tends to follow a Gaussian distribution.</p>
 
-  <h2>2. Meaning of the Gaussian Distribution:</h2>
-    <p>The Gaussian distribution represents the probability distribution of a continuous random variable. In real-world scenarios,
-    many phenomena exhibit a Gaussian-like behavior, making it a suitable model for various applications. The shape of the
-    distribution is determined by two parameters: the mean (µ) and the standard deviation (σ).
-    The mean locates the center of the distribution, while the standard deviation controls the spread or dispersion.</p>
+    <h3>1.1 Gauss's life and historical context</h3>
+      <p>Carl Friedrich Gauss (30 April 1777, Brunswick -  23 Febrary 1885, Gottinga) was a prodigious mathematician,
+        astronomer, and physicist. Gauss's mathematical abilities, were evident since his young age. In his teens, he
+        made significant contributions to number theory. At the age of 19, Gauss independently discovered the method of
+        least squares, but his work in number theory culminated in his doctoral thesis, "Disquisitiones Arithmeticae,"
+        published in 1801, which remains a foundational text in the statistical field. Gauss's career continued to
+        flourish, he also contributed to physics, particularly in the understanding of magnetism and the Earth's magnetic field.
+        <br><br>
+        Gauss's legacy endures not only through his theorems and formulas but also in the broader application of his
+        mathematical methods across various scientific disciplines. His impact on mathematics, astronomy, and physics
+        solidifies his status as one of the most influential scientists in history. His influence extended beyond his
+        research; he mentored numerous students who went on to become prominent mathematicians and scientists.</p>
 
-  <h2>3. Derivations of the Gaussian Distribution:</h2>
-    <p>The probability density function (PDF) and cumulative distribution function (CDF) are integral to understanding the
-    Gaussian distribution. The PDF, denoted by f(x), describes the likelihood of a random variable taking a specific value.
-    The standard form of the Gaussian PDF is given by:
-    $$ f_(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} * e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$
-    Here, μ is the mean, σ is the standard deviation, π is the mathematical constant pi, and e is the base of the natural
-    logarithm. The CDF, denoted by Φ(x), represents the probability that a random variable is less than or equal to a given
-    value x.</p>
+    <h3>1.2 Gauss's contributions</h3>
+      <p>Gauss's significance in the development of mathematics is underscored by the broad range of fields in which his
+        ideas continue to shape research and applications. His methods and theorems remain fundamental in both pure and
+        applied mathematics, ensuring his enduring legacy in the scientific community. The significance of his work lies
+        in several key areas:
+        <ul>
+          <li><strong>Number Theory - </strong>Gauss's "Disquisitiones Arithmeticae" laid the groundwork for modern number
+            theory. It provided a systematic treatment of properties of integers and introduced concepts such as modular
+            arithmetic and quadratic reciprocity.</li>
+          <li><strong>Geometry and Differential Geometry - </strong>Gauss made significant contributions to geometry,
+            particularly in the study of curved surfaces. His work on intrinsic geometry and the development of Gaussian
+            curvature laid the foundation for differential geometry.</li>
+          <li><strong>Statistics - </strong>Gauss developed the <b>method of least squares</b>, a statistical technique
+            for estimating the parameters of a mathematical model by minimizing the sum of the squares of the differences
+            between observed and calculated values.But also <b>the normal distribution</b>, often referred to as the Gaussian
+            distribution, is a fundamental concept in statistics that emerged from Gauss's work.</li>
+          <li><strong>Celestial Mechanics - </strong>Gauss made significant contributions to celestial mechanics by
+            formulating methods to predict the orbits of celestial bodies. His insights and calculations contributed to
+            the understanding of the motion of planets and asteroids. The method of Gaussian gravitational constant, used
+            in orbit determination and satellite tracking, is still employed today.</li>
+          <li><strong>Physics and Magnetism - </strong>Gauss conducted pioneering work in the field of magnetism,
+            contributing to the understanding of the Earth's magnetic field. His magnetic observations and formulations
+            advanced the study of geomagnetism. The unit of magnetic flux density, the gauss, is named in honor of his
+            contributions in this field.</li>
+          <li><strong>Mathematical Methods in Physics - </strong>Gauss's mathematical methods, particularly those related
+            to differential equations and mathematical analysis, influenced theoretical physics. His ideas played a role
+            in the development of electromagnetism and laid the groundwork for later advances in the field.</li>
+          <li><strong>Computational Mathematics - </strong>auss made significant contributions to the development of
+            numerical methods and algorithms. His contributions to interpolation, approximation, and the fast Fourier
+            transform have had a lasting impact on computational mathematics.</li>
+        </ul>
+      </p>
 
-  <h2>4. Central Limit Theorem and Gaussian Distribution:</h2>
-    <p>The central limit theorem is a fundamental concept that establishes the Gaussian distribution as a universal
-    limit for the sum or average of independent and identically distributed random variables. As the sample size
-    increases, the distribution of the sample mean approaches a Gaussian distribution, regardless of the original
-    distribution of the individual variables. This theorem underlies the statistical inference and estimation methods
-    widely used in research and industry.</p>
+  <h3>Gauss's contributions to the development of statistical methods</h3>
+    <p>Gauss's work in statistics had a profound impact on the field, providing a systematic and rigorous approach to
+      estimating parameters in mathematical models. Here are key aspects of Gauss's contributions to statistical methods:
+      <ol>
+        <li><strong>Method of Least Squares - </strong>The method aims to find the best-fitting curve to a set of
+          observations by minimizing the sum of the squares of the differences between the observed and calculated values.
+          This technique is widely used in regression analysis, where it helps determine the coefficients of a mathematical
+          model that best fits a given set of data points. The method of least squares became a cornerstone of statistical inference.</li>
+        <li><strong>Gaussian Distribution - </strong>He demonstrated that the distribution of errors in subsequential
+          observations follows a bell-shaped curve, with most errors clustering around the mean. The Gaussian distribution
+          is crucial in statistics and probability theory. It serves as the foundation for many statistical methods,
+          including hypothesis testing, confidence intervals, and the central limit theorem.</li>
+        <li><strong>Standard Deviation - </strong> Also know as "probable error", represents a measure of the spread of
+          a set of data points around the mean.</li>
+        <li><strong>Probability Theory - </strong>Gauss made significant contributions to the development of probability
+          theory. He worked on the development of the method of moments and provided insights into the statistical
+          properties of data. His work laid the groundwork for the application of probability in statistical analysis,
+          providing a theoretical basis for understanding uncertainties and variability in data.</li>
+      </ol>
+  Gauss's work in statistics not only provided practical methods for handling observational errors but also laid the
+  theoretical foundation for statistical inference. The method of least squares and the Gaussian distribution, in
+  particular, remain fundamental tools in modern statistics, playing a crucial role in data analysis and scientific research.
+    </p>
 
-  <h2>5. Simulations of the Gaussian Distribution:</h2>
-    <p>To reinforce the theoretical concepts, simulations of the Gaussian distribution can be implemented using programming
-      languages like Python or R. These simulations involve generating random samples from a Gaussian distribution with
-      specified mean and standard deviation. Visualizations, such as histograms and probability density plots, can be used
-      to illustrate the characteristic bell-shaped curve. Additionally, simulations can showcase the convergence to the
-      Gaussian distribution as the sample size increases, providing a hands-on understanding of the central limit theorem.</p>
+  <h2>2. The Gaussian Distribution</h2>
+    <p>The Gaussian Distribution,  also known as the normal distribution or bell curve, is a probability distribution
+      that is symmetric and characterized by its bell-shaped curve. It represents the probability distribution of a
+      continuous random variable which shape is completely determined by two parameters: the mean \(mu\) and the standard
+      deviation \(\sigma\).
+      <br><br>
+      The Probability Density Function (PDF) of the Gaussian Distribution is given by the formula:
+      $$ f(x; \mu, \sigma) = \frac{1}{\sqrt{2 \pi \sigma^2}} * e^{-\frac{(x-\mu)^2}{2\sigma^2}} $$
+      <img src="NormalDistribution.png" alt="PDF Gauss Distribution variation." width="1200" height="600" class="center">
+      <br><br>
+      The figure shows the Gauss Distribution PDF variation at \(mu\) and \(\sigma\) change. From the figure it is easy
+      to see how the mean \(\mu\) locates the center of the distribution, while the standard deviation \(\sigma\)
+      controls the spread or dispersion.
+    </p>
 
-  <h2>6. Conclusion:</h2>
+      <h3>2.2 Properties</h3>
+        <p>All properties can be derived from the study of its function analytic:
+            <ul>
+              <li>Symmetrical with respect to the x-axis, infact $$ (x - \mu)^2 = [-(x - \mu)^2] = (x - \mu)^2 $$ </li>
+              <li>It has a relative (and absolute) maximum at the point \( x = \mu \):
+              $$ f'(x) = - \frac{1}{\sqrt{2 \pi \sigma^2}} * e^{-\frac{(x-\mu)^2}{2\sigma^2}} * \frac{(x-\mu)}{\sigma} = 0 \Rightarrow x-\mu = 0 \Rightarrow x = \mu $$</li>
+              <li>The maximum hold:
+              $$ f(\mu) = \frac{1}{\sqrt{2 \pi \sigma^2}} * e^{-\frac{(\mu -\mu)^2}{2\sigma^2}} = \frac{1}{\sqrt{2 \pi \sigma^2}} * e^0 = \frac{1}{\sqrt{2 \pi \sigma^2}} $$</li>
+              <li>The area subtended by the curve is about 1:
+              $$ \int_{-\infty}^{+\infty}{\frac{1}{\sqrt{2 \pi \sigma^2}} * e^{-\frac{(x-\mu)^2}{2\sigma^2}} dx} $$
+              $$ consider \; \mu = 1 \; and \; \sigma = 1: \int_{-\infty}^{+\infty}{\frac{1}{\sqrt{2 \pi}} * e^{-\frac{x^2}{2}} dx} = \frac{1}{\sqrt{2 \pi}} * \sqrt{2 \pi} =1 $$</li>
+              <li>Important areas underneath the Normal curve identified in minimum mean-square distances from the mean:
+                <br>- 0.6826 of the area lies between \( (x - \sigma ) \)  and \( (x + \sigma ) \)
+                <br>- 0.9544 of the area lies between \( (x - 2\sigma ) \)  and \( (x + 2\sigma ) \)
+                <br>- 0.9973 of the area lies between \( (x - 3\sigma ) \)  and \( (x + 3\sigma ) \)
+                <img src="GaussStdDev.png" alt="PDF Gauss statdard deviation" width="1200" height="600" class="center"></li>
+            </ul>
+        </p>
+
+      <h3>2.3 The Standardized Normal Distribution</h3>
+        <p>The standardized normal distribution, also known as the Z-distribution or standard normal distribution, is a
+          special case of the normal distribution. It has a mean \( \mu = 0) \) and standard deviation \( \sigma = 1 \).
+          The probability density function (PDF) of the standardized normal distribution is denoted by \( \Phi(z) \)
+          where \( z \) is the tandardized variable.
+          <br><br>
+          The PDF of the standardized normal distribution is given by:
+          $$ \Phi(z) = \frac{1}{\sqrt{2 \pi}} e^{- \frac{z^2}{2}} $$
+          The standardized normal distribution is important in statistics because it allows for the transformation of
+          any normal distribution into a standard form. This transformation is achieved by subtracting the mean and
+          dividing by the standard deviation.
+          <br>
+          For a random variable \( X \) following a normal distribution with mean \( \mu \) and standard deviation \( \sigma \),
+          the standardized variable \( Z \) is calculated as:
+          $$ Z = \frac{X - \mu}{\sigma} $$
+          The use of the standardized normal distribution simplifies statistical calculations and comparisons, as it
+          provides a common scale for normal distributions with different means and standard deviations. Tables of the
+          standardized normal distribution, often referred to as Z-tables, are widely used in statistical inference for
+          looking up probabilities associated with specific Z-scores.
+          <br><br>
+          The <b>z-score</b> indicates by how many standard deviations the random variable \(x\) deviates from the mean.
+          It gives the relative position of \(x\) with respect to the center of the distribution. E.g.: a z-score of 2
+          means that between the mean and the variable \(x\) there are 2 standard deviations.
+          <br><br>
+          In other words, if we have a normal distribution the probabilities corresponding to the areas subtended by the
+          normal curve between two extremes \(x_1\) and \(x_2\) can be calculated by transforming the distribution into
+          the standard normal distribution. These probabilities are reported in a table.
+          <img src="Z-Score-Table.jpg" alt="PDF Gauss statdard deviation" width="600" height="1200" class="center">
+          <br><br>
+          This avoids the need for complex integral calculations to find the probabilities of a variable \(X\) taking values
+          within certain intervals. It also allows immediate comparison between different distributions.
+          <img src="standard-normal-distribution-curve.png" alt="PDF Gauss statdard deviation" width="1200" height="600" class="center">
+        </p>
+
+  <h2>3. The Gaussian Distribution into the real world</h2>
+    <p>In real-world scenarios, many phenomena exhibit a Gaussian-like behavior, making it a suitable model for various
+      applications.
+      <ul>
+        <li><strong>Quality Control </strong>In manufacturing and quality control, the Gaussian distribution is often
+          used to model variations in product specifications. Deviations from normality may indicate issues in the
+          production process.</li>
+        <li><strong>Biological Sciences </strong>Many biological measurements, such as height, weight, and blood pressure,
+          tend to follow a Gaussian distribution. This makes the Gaussian distribution a common choice for modeling and
+          analyzing biological data.</li>
+        <li><strong>Physics and Engineering </strong> Errors in measurements, often exhibit a Gaussian distribution.
+          This distribution simplifies the analysis of uncertainties and errors.</li>
+        <li><strong>Image and Signal Processing </strong>Gaussian distributions are frequently used in image and signal
+          processing to model noise. Filtering techniques based on Gaussian distributions are employed to enhance and
+          denoise images and signals.</li>
+        <li><strong>Machine Learning and Data Science </strong>Gaussian distributions are used in various machine
+          learning algorithms, especially in clustering and classification. Gaussian Mixture Models (GMMs) are a popular
+          method for modeling complex data distributions.</li>
+        <li><strong>Environmental Studies </strong>Environmental data, such as pollution levels or weather phenomena,
+          may be modeled using Gaussian distributions, allowing for the analysis of natural variability.</li>
+      </ul>
+    </p>
+
+  <h2>4. Simulations: Students Performance</h2>
+    <p>For the simulation part, I made use of a dataset found on the net <i>StudentsPerfomance.csv</i> that collects the
+      results obtained by high school United States students on end-of-year exams. The dataset is made up the following
+      columns: <i>gender, race/ethnicity, parental level of education, lunch, test preparation course, math score,
+        reading score and writing score.</i>
+    </p>
+    <h3>Step 1 - Know the dataset</h3>
+      <p>First, to familiarize with the dataset and its structure, I visualized the first few rows and then had a
+        statistical overview returned.
+        <table border="1" class="center">
+          <caption>Dataset first rows.</caption>
+          <tr>
+            <th>gender</th>
+            <th>race/ethnicity</th>
+            <th>parental level of education</th>
+            <th>lunch</th>
+            <th>test preparation course</th>
+            <th>math score</th>
+            <th>reading score</th>
+            <th>writing score</th>
+          </tr>
+          <tr>
+            <td>female</td>
+            <td>group B</td>
+            <td>bachelor's degree</td>
+            <td>standard</td>
+            <td>none</td>
+            <td>72</td>
+            <td>72</td>
+            <td>74</td>
+          </tr>
+          <tr>
+            <td>female</td>
+            <td>group C</td>
+            <td>some college</td>
+            <td>standard</td>
+            <td>completed</td>
+            <td>69</td>
+            <td>90</td>
+            <td>88</td>
+          </tr>
+          <tr>
+            <td>female</td>
+            <td>group B</td>
+            <td>master's degree</td>
+            <td>standard</td>
+            <td>none</td>
+            <td>90</td>
+            <td>95</td>
+            <td>93</td>
+          </tr>
+          <tr>
+            <td>male</td>
+            <td>group A</td>
+            <td>associate's degree</td>
+            <td>free/reduced</td>
+            <td>none</td>
+            <td>47</td>
+            <td>57</td>
+            <td>44</td>
+          </tr>
+          <tr>
+            <td>male</td>
+            <td>group C</td>
+            <td>some college</td>
+            <td>standard</td>
+            <td>none</td>
+            <td>76</td>
+            <td>78</td>
+            <td>75</td>
+          </tr>
+        </table>
+        <br><br>
+        <table border="1" class="center">
+          <caption>Dataset statistical overview.</caption>
+          <tr>
+            <th></th>
+            <th>math score</th>
+            <th>reading score</th>
+            <th>writing score</th>
+          </tr>
+          <tr>
+            <td>count</td>
+            <td>1000.00000</td>
+            <td>1000.000000</td>
+            <td>1000.000000</td>
+          </tr>
+          <tr>
+            <td>mean</td>
+            <td>66.08900</td>
+            <td>69.169000</td>
+            <td>68.054000</td>
+          </tr>
+          <tr>
+            <td>std</td>
+            <td>15.16308</td>
+            <td>14.600192</td>
+            <td>15.195657</td>
+          </tr>
+          <tr>
+            <td>min</td>
+            <td>0.00000</td>
+            <td>17.000000</td>
+            <td>10.000000</td>
+          </tr>
+          <tr>
+            <td>25%</td>
+            <td>57.00000</td>
+            <td>59.000000</td>
+            <td>57.750000</td>
+          </tr>
+          <tr>
+            <td>50%</td>
+            <td>66.00000</td>
+            <td>70.000000</td>
+            <td>69.000000</td>
+          </tr>
+          <tr>
+            <td>75%</td>
+            <td>77.00000</td>
+            <td>79.000000</td>
+            <td>79.000000</td>
+          </tr>
+          <tr>
+            <td>max</td>
+            <td>100.00000</td>
+            <td>100.000000</td>
+            <td>100.000000</td>
+          </tr>
+        </table>
+        <br><br>
+        From the dataset we learn that:
+        <ul>
+          <li>there are 1000 scores for math, reading and writing;</li>
+          <li>all means are very close to each other - between 66 and 68.05;</li>
+          <li>all standard deviations are also close - between 14.6 and 15.19;</li>
+          <li>while there is a minimum score of 0 for math, for writing minimum is much higher - 10, and for reading myet higher - 17.00;</li>
+          <li>for all three disciplines the highest score of 100 was achieved at least by one student.</li>
+        </ul>
+      </p>
+
+    <h3>Step 2 - Normality Check</h3>
+      <p>As second step, I simply build three histograms, one for every discipline, and visually check whether data
+        seems normally distributed.
+        <img src="NormalityCheck.png" alt="PDF Gauss statdard deviation" width="1200" height="600" class="center">
+        The three histograms look like Gaussian distibution! Let us go further and try to fit a bell curve over a histogram.
+      </p>
+
+    <h3>Step 3 - Fit a bell curve</h3>
+      <p>Now as we know that the data looks Gaussian, we can try to fit a bell curve to prove it. For that, we will first
+        calculate mean and standard deviation, then generate a normally distributed array and finally plot the array curve.
+        <img src="FittedCurve.png" alt="PDF Gauss statdard deviation" width="1200" height="600" class="center">
+        <table border="1" class="center">
+          <caption>Estimated paramiters.</caption>
+          <tr>
+            <th> </th>
+            <th>Estimated mean</th>
+            <th>Estimated standard deviation</th>
+          </tr>
+          <tr>
+            <td>Math parameters</td>
+            <td>66.089</td>
+            <td>15.155496659628165</td>
+          </tr>
+          <tr>
+            <td>Reading parameters</td>
+            <td>69.169</td>
+            <td>14.59289001534652</td>
+          </tr>
+          <tr>
+            <td>Writing parameters</td>
+            <td>68.054</td>
+            <td>15.188057281956757</td>
+          </tr>
+        </table>
+        They fit!
+        The Pyhton code is available <a target="_blank" href="https://github.com/Vale-32/milia-statistics.github.io/blob/main/studentsPerformance.py">here.</a>
+      </p>
+
+  <h2>5. Conclusion</h2>
     <p>In conclusion, the Gaussian distribution is a cornerstone in probability theory and statistics, playing a crucial
       role in modeling diverse phenomena. This paper has explored the meaning of the Gaussian distribution, presented
       derivations of its probability density and cumulative distribution functions, and highlighted the significance of
