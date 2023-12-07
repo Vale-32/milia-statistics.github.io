@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinForm", "WinForm\WinForm.csproj", "{93AFF1AE-84D3-4DE7-8F52-4FF152D6FB74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93AFF1AE-84D3-4DE7-8F52-4FF152D6FB74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93AFF1AE-84D3-4DE7-8F52-4FF152D6FB74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93AFF1AE-84D3-4DE7-8F52-4FF152D6FB74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93AFF1AE-84D3-4DE7-8F52-4FF152D6FB74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
